@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>机构工坊 · 平面机构设计与仿真</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-select" viewBox="0 0 24 24"><path d="m5 3 14 10-7 1-3 7z"/></symbol>
+    <symbol id="i-point" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></symbol>
+    <symbol id="i-fixed" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="m12 9-7 10h14zM3 22h18M6 22l-2 2m7-2-2 2m7-2-2 2"/></symbol>
+    <symbol id="i-rod-joint" viewBox="0 0 24 24"><path d="m3 20 6-6m6-6 6-5m-7 11 5 5"/><circle cx="12" cy="11" r="3.5"/><circle cx="20" cy="20" r="2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M6 16c3 0 3-9 6-9s3 9 6 9l3-5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m7 17 10-10"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="5" r="3"/></symbol>
+    <symbol id="i-examples" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-rod-point" viewBox="0 0 24 24"><path d="M3 12h5m8 0h5M3 9v6M21 9v6"/><circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-rigid-arm" viewBox="0 0 24 24"><path d="M3 19h18M12 19V7m0 7h5v5"/><circle cx="12" cy="4.5" r="2.5"/></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><path d="M6 5h12l2 14H4z"/><circle cx="6" cy="5" r="2" fill="white"/><circle cx="18" cy="5" r="2" fill="white"/><circle cx="20" cy="19" r="2" fill="white"/><circle cx="4" cy="19" r="2" fill="white"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><path d="m10 3 4 0 .6 3 2 .9 2.6-1 2 3.5-2.2 2v2.3l2.2 2-2 3.5-2.6-1-2 .9-.6 3h-4l-.6-3-2-.9-2.6 1-2-3.5 2.2-2v-2.3l-2.2-2 2-3.5 2.6 1 2-.9z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-mesh" viewBox="0 0 24 24"><circle cx="7" cy="9" r="4"/><circle cx="17" cy="15" r="4"/><path d="m7 2 0 3m-7 4h3m4 4v3m7-1h-3m6-7v3m0 8v3m4-7h3M10 7l5 6"/></symbol>
+    <symbol id="i-slider" viewBox="0 0 24 24"><path d="M3 7h18M3 17h18"/><rect x="8" y="5" width="8" height="14" rx="2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2 7M4 3v8h8"/></symbol>
+    <symbol id="i-step" viewBox="0 0 24 24"><path d="m4 5 11 7-11 7zM19 5v14"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M4 3h13l3 3v15H4zM8 3v6h8V3M8 21v-8h8v8"/></symbol>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M3 20V5h7l2 3h8v4M3 20l4-8h15l-4 8z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 7 7v4"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="m16 4 5 5-5 5m5-5H11a7 7 0 0 0-7 7v4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 4 3c-1 1-1 1-1 3m0 2v1"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><path d="M12 19c-5 0-8-3-8-7s3-8 7-8c5 0 4 6 7 7 4 2 1 8-6 8Z"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="7" r="2"/><path d="M19 5V2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  </svg>
+  <header class="app-header">
+    <div class="brand"><div class="brand-mark"><svg><use href="#i-link"/></svg></div><div><strong>机构工坊</strong><span>平面机构设计与仿真</span></div><span class="version">2.2</span></div>
+    <nav class="file-actions" aria-label="文件操作">
+      <button id="new-btn"><svg><use href="#i-plus"/></svg>新建</button>
+      <button id="examples-btn" aria-label="机构示例" aria-haspopup="dialog" aria-controls="examples-dialog" title="选择内置机构案例"><svg><use href="#i-examples"/></svg><span class="full-label">机构示例</span><span class="short-label" aria-hidden="true">示例</span></button>
+      <button id="open-btn" aria-label="导入机构" title="导入可编辑的机构 JSON 文件"><svg><use href="#i-open"/></svg><span class="full-label">导入机构</span><span class="short-label" aria-hidden="true">导入</span></button>
+      <button id="export-btn" class="primary-soft" aria-label="导出" aria-haspopup="dialog" aria-controls="export-dialog" title="选择机构文件、PDF 或运动数据导出"><svg><use href="#i-download"/></svg><span>导出</span></button>
+      <button id="cam-btn" aria-label="凸轮设计" aria-haspopup="dialog" aria-controls="cam-dialog"><svg><use href="#i-cam"/></svg><span class="full-label">凸轮设计</span><span class="short-label" aria-hidden="true">凸轮</span></button>
+      <button id="synthesis-btn" class="primary-soft" aria-label="轨迹合成" aria-haspopup="dialog" aria-controls="synthesis-dialog"><svg><use href="#i-chart"/></svg><span class="full-label">轨迹合成</span><span class="short-label" aria-hidden="true">合成</span></button>
+      <button id="curves-btn" aria-label="函数曲线" aria-haspopup="dialog" aria-controls="curves-dialog"><svg><use href="#i-chart"/></svg><span class="full-label">函数曲线</span><span class="short-label" aria-hidden="true">曲线</span></button>
+      <button id="draft-btn" aria-label="绘图辅助" aria-haspopup="dialog" aria-controls="draft-dialog"><svg><use href="#i-fit"/></svg><span class="full-label">绘图辅助</span><span class="short-label" aria-hidden="true">辅助</span></button>
+      <button id="help-btn" class="icon-button" aria-label="使用帮助"><svg><use href="#i-help"/></svg></button>
+    </nav>
+  </header>
+  <main class="workspace">
+    <aside class="left-panel">
+      <div class="panel-label">案例与元素</div>
+      <section class="case-library" aria-label="我的案例"><div class="case-heading"><h2>我的案例</h2><span id="case-count" class="badge">0</span></div><p class="case-hint">导入或导出的案例保存在此处。<br>将导出的 JSON 文件发给同学即可分享。</p><div id="case-list" class="case-list"></div></section>
+      <div class="parts-heading"><h2>机构元素</h2><span id="parts-count" class="badge">0</span></div>
+      <div class="parts-tabs"><button class="active" data-list="nodes">节点</button><button data-list="links">连杆</button><button data-list="sliders">导轨</button><button data-list="attachments">附着</button><button data-list="bodies">构件</button><button data-list="gears">齿轮</button><button data-list="meshes">啮合</button><button data-list="cams">凸轮</button></div>
+      <div id="parts-list" class="parts-list"></div>
+      <div class="left-footer"><span class="local-dot"></span><div><strong>本地工作空间</strong><span id="autosave-state">自动保存到当前浏览器</span></div></div>
+    </aside>
+    <section class="editor-panel" aria-label="机构编辑器">
+      <div class="document-heading"><div><span class="document-dot"></span><strong id="document-name">曲柄摇杆</strong><span id="document-meta">平面机构 · mm</span></div><button id="rename-btn" class="text-button">重命名</button></div>
+      <div class="editor-toolbar">
+        <div class="tool-group" role="toolbar" aria-label="绘图工具">
+          <button data-tool="select" class="tool active" title="选择 / 拖动 (V)"><svg><use href="#i-select"/></svg><span>选择</span></button>
+          <button data-tool="node" class="tool" title="添加铰点 (P)"><svg><use href="#i-point"/></svg><span>铰点</span></button>
+          <button data-tool="fixed" class="tool" title="添加固定铰点，或点击已有铰点切换固定状态 (G)"><svg><use href="#i-fixed"/></svg><span>固定铰点</span></button>
+          <button data-tool="link" class="tool" title="连接两个铰点 (L)"><svg><use href="#i-link"/></svg><span>连杆</span></button>
+          <button data-tool="loop" class="tool" title="连续绘制闭合连杆回路 (C)"><svg><use href="#i-loop"/></svg><span>闭合回路</span></button>
+          <button data-tool="slider" class="tool" title="绘制滑块与机架 / 活动构件导轨 (S)"><svg><use href="#i-slider"/></svg><span>滑块 / 导轨</span></button>
+          <button id="cam-tool-btn" class="tool" title="打开凸轮设计窗口"><svg><use href="#i-cam"/></svg><span>凸轮</span></button>
+          <button data-tool="gear" class="tool" title="添加齿轮，选择轴心和固连偏心点 (R)"><svg><use href="#i-gear"/></svg><span>齿轮</span></button>
+          <button data-tool="mesh" class="tool" title="依次选择两只齿轮建立传动关系 (M)"><svg><use href="#i-mesh"/></svg><span>啮合</span></button>
+          <button data-tool="pin" class="tool" title="在杆上添加可连接新连杆的铰点 (J)"><svg><use href="#i-rod-joint"/></svg><span>杆上铰点</span></button>
+          <button data-tool="point" class="tool" title="在杆上选择并添加轨迹点 (T)"><svg><use href="#i-rod-point"/></svg><span>杆上点</span></button>
+          <button data-tool="arm" class="tool" title="从杆上画刚性伸出杆 (E)"><svg><use href="#i-rigid-arm"/></svg><span>伸出杆</span></button>
+        </div>
+        <div class="toolbar-divider"></div>
+        <button id="undo-btn" class="icon-button" aria-label="撤销" title="撤销 Ctrl+Z"><svg><use href="#i-undo"/></svg></button>
+        <button id="redo-btn" class="icon-button" aria-label="重做" title="重做 Ctrl+Y"><svg><use href="#i-redo"/></svg></button>
+        <div class="toolbar-spacer"></div>
+        <button id="delete-btn" class="icon-button" aria-label="删除选中元素" title="删除 Delete"><svg><use href="#i-trash"/></svg></button>
+      </div>
+      <div id="attachment-options" class="attachment-options" hidden><span id="attachment-instruction">点击母杆确定连接位置</span><label id="arm-direction-label">伸出方向 <select id="arm-direction" aria-label="伸出杆绘制方向"><option value="perpendicular">垂直伸出</option><option value="free">任意侧向</option></select></label></div>
+      <div id="loop-options" class="loop-options" hidden><label>绘制类型 <select id="loop-mode" aria-label="闭合绘制类型"><option value="hinged">铰接连杆回路</option><option value="rigid">整体刚性构件</option></select></label><span id="loop-instruction">依次点击顶点，点回起点闭合 · 顶点保持铰接</span><button id="finish-loop" disabled>闭合回路</button></div>
+      <div id="slider-options" class="slider-options" hidden><label>导轨安装 <select id="slider-frame"><option value="ground">机架上的导轨</option><option value="moving">活动杆上的导槽</option></select></label><span id="slider-instruction">先点击滑块铰点，再点击方向点</span><button id="cancel-slider">取消绘制</button></div>
+<div id="gear-options" class="gear-options" hidden><label>类型 <select id="gear-kind"><option value="spur">外齿轮</option><option value="ring">内齿圈</option><option value="worm">蜗杆</option><option value="wheel">蜗轮</option></select></label><label id="gear-teeth-label">齿数 <input id="gear-teeth" type="number" min="8" max="300" step="1" value="20"></label><label>模数 / mm <input id="gear-module" type="number" min="0.1" max="100" step="0.1" value="2"></label><label id="gear-starts-label" hidden>头数 <input id="gear-starts" type="number" min="1" max="8" step="1" value="1"></label><span id="gear-instruction">先选轴心，再选偏心点或现有杆端</span></div>
+      <div id="mesh-options" class="gear-options" hidden><label>啮合类型 <select id="mesh-kind"><option value="external">外啮合</option><option value="internal">内啮合</option><option value="worm">蜗轮蜗杆</option></select></label><label>行星架 <select id="mesh-carrier"><option value="">机架（定轴）</option></select></label><label id="mesh-direction-label" hidden>输出正方向 <select id="mesh-direction"><option value="1">正向</option><option value="-1">反向</option></select></label><span id="mesh-instruction">依次点击两只齿轮；蜗杆先选</span></div>
+      <div class="stage-wrap" id="stage-wrap">
+        <svg id="stage" xmlns="http://www.w3.org/2000/svg" role="application" aria-label="机构绘图区域：拖动铰点编辑，滚轮缩放，右键拖动画布平移"></svg>
+        <div class="stage-note"><span class="blue-dot"></span><span id="stage-state">编辑模式</span></div>
+        <div class="view-controls"><button id="zoom-out" aria-label="缩小">−</button><span id="zoom-value">100%</span><button id="zoom-in" aria-label="放大">＋</button><button id="fit-btn" aria-label="适应画布" title="适应画布 (F)"><svg><use href="#i-fit"/></svg></button></div>
+        <div class="canvas-hint" id="canvas-hint">拖动铰点调整结构 · 滚轮缩放 · 右键平移</div>
+        <div id="trace-tooltip" class="trace-tooltip" hidden></div>
+      </div>
+      <div class="simulation-panel">
+        <div class="drive-settings"><label>输入模式 <select id="input-mode" aria-label="输入模式"><option value="rotate">整周旋转</option><option value="swing">区间摆动</option></select></label><div id="swing-controls" hidden><label>下限 <input id="swing-min" type="number" step="1" aria-label="摆动下限">°</label><label>上限 <input id="swing-max" type="number" step="1" aria-label="摆动上限">°</label><button id="apply-swing">应用范围</button></div><span id="drive-law">恒定转速</span></div>
+        <div class="transport-row"><button id="play-btn" class="play-button"><svg><use href="#i-play"/></svg><span>运行仿真</span></button><button id="step-btn" class="icon-button" aria-label="单步前进 2 度" title="单步 +2°"><svg><use href="#i-step"/></svg></button><button id="reset-btn" class="icon-button" aria-label="回到初始位置" title="回到初始位置"><svg><use href="#i-reset"/></svg></button><div class="transport-spacer"></div><label class="rpm-control"><span id="rpm-label">转速</span> <input id="rpm-input" type="number" value="12" min="-300" max="300" step="1" aria-label="驱动转速"> <span id="rpm-unit">rpm</span></label></div>
+        <div class="playback-row"><label for="playback-rate">播放速度</label><span class="playback-limit">0.1×</span><input id="playback-rate" type="range" min="0.1" max="4" step="0.05" value="1" aria-label="仿真播放速度" aria-describedby="playback-note"><span class="playback-limit">4×</span><output id="playback-rate-value" for="playback-rate">1×</output><button id="playback-reset" class="text-button" type="button" title="恢复正常播放速度">恢复 1×</button></div>
+        <p id="playback-note" class="playback-note">倍速控制播放节奏；运动学数据按输入转速 / 频率计算。</p>
+        <div class="angle-row"><span>输入角度</span><input id="angle-range" type="range" min="0" max="360" step="0.1" value="40" aria-label="输入角度"><input id="angle-input" type="number" step="0.1" value="40" aria-label="输入角度数值"><span>°</span></div>
+      </div>
+      <div class="status-bar"><span id="solver-state"><i class="status-dot"></i>就绪</span><span id="solver-error">约束误差 —</span><span id="pointer-coordinates">mm</span></div>
+    </section>
+    <aside class="right-panel">
+      <div class="inspector-title"><h2>属性</h2><span id="selection-tag" class="badge">未选择</span></div>
+      <div id="inspector" class="inspector"></div>
+      <div id="gear-train" class="panel-section gear-train" hidden><h3>齿轮传动</h3><p class="property-note">i = ω输入 / ω构件；正值同向，负值反向。角速度单位 rad/s，转速单位 rpm。</p><div id="gear-ratios"></div><div id="mesh-formulas"></div><div id="gear-sampling" class="gear-sampling"><label class="field">轨迹 / 曲线输入圈数<input id="gear-turns" type="number" min="1" max="300" step="1" value="1"></label><button id="gear-full-cycle" class="primary-soft">采用完整轮系周期</button></div><p id="gear-cycle-note" class="property-note"></p></div>
+
+      <div class="panel-section display-section"><h3>画布显示</h3><label class="check-row"><input type="checkbox" id="show-grid" checked>显示网格<span id="grid-value">10 mm</span></label><label class="check-row"><input type="checkbox" id="snap-grid" checked>吸附网格<span>最小 1 mm</span></label><label class="check-row"><input type="checkbox" id="snap-joints" checked>绘杆时吸附铰点<span>14 px</span></label><label class="check-row"><input type="checkbox" id="show-dimensions" checked>尺寸标注<span>mm</span></label><label class="check-row"><input type="checkbox" id="show-traces" checked>运动轨迹<span class="color-key"></span></label></div>
+      <div class="panel-section speed-section"><h3>运动学显示</h3><label class="field">显示量<select id="motion-metric" aria-label="运动学显示量"><option value="speed">线速度</option><option value="acceleration">线加速度</option><option value="angular">角速度</option></select></label><label class="check-row"><input type="checkbox" id="show-speed" checked>颜色与方向箭头<span id="metric-unit">mm/s</span></label><label class="field">观察轨迹点<select id="speed-node" aria-label="速度观察铰点"></select></label><label id="angular-reference-label" class="field" hidden>角速度参考杆<select id="angular-reference" aria-label="角速度参考杆"></select></label><div class="speed-reading"><strong id="speed-value">—</strong><span id="reading-unit">mm/s</span></div><div id="speed-components" class="property-note">运行仿真或调整输入角度</div><div id="speed-legend"><div class="speed-gradient"></div><div class="speed-scale"><span>0 · 小</span><span id="speed-max">1 · 大</span></div></div><p id="metric-note" class="property-note">悬停轨迹查看数值。箭头表示方向，长度按色标缩放。</p><button id="trace-cycle-btn" class="primary-soft">绘制一周轨迹</button></div>
+      <div class="panel-section analysis-section"><h3>机构概况</h3><div class="stat-grid"><div><span>节点</span><strong id="node-stat">4</strong></div><div><span>连杆</span><strong id="link-stat">3</strong></div></div><div class="mobility-formula"><strong>F = 3n − 2Pₗ − Pₕ</strong><div id="mobility-expression">3 × 3 − 2 × 4 − 0 = 1</div></div><div id="mobility-counts" class="mobility-counts"></div><details class="mobility-details"><summary>计算口径与复合铰链</summary><p>机架不计入 n；每根独立活动杆或整体刚性板件计一个构件，铰接滑块另计一个构件，固连滑块并入连接杆件。k 个构件共用一个铰点，按 k − 1 个转动副计数。两端固定的杆归入机架；一对齿轮啮合计一个高副；齿轮与参考杆固连时合计一个构件，同轴齿轮共用参考杆也只计一次。</p><div id="joint-counts"></div><p>公式适用于独立约束的一般位形。特殊几何、重复约束或孤立点可能使公式值与几何估计不同。</p></details><div class="dof-row"><span>初始位形几何自由度</span><strong id="dof-stat">1</strong></div><div class="analysis-note" id="analysis-note">设置一个角度输入即可驱动</div></div>
+    </aside>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input id="file-input" type="file" accept=".json,application/json" hidden>
+  <dialog id="export-dialog" aria-labelledby="export-title"><div class="dialog-heading"><h2 id="export-title">导出</h2><button id="export-close" aria-label="关闭导出">×</button></div><p class="muted">保存机构用于编辑和分享，或保存图形与运动数据。</p><div class="export-choices">
+    <button id="save-btn" class="export-choice"><svg><use href="#i-save"/></svg><span><strong>机构 JSON</strong><small>保留全部结构与显示设置，可继续编辑 · Ctrl+S</small></span></button>
+    <button id="pdf-btn" class="export-choice"><svg><use href="#i-download"/></svg><span><strong>机构与轨迹 PDF</strong><small>当前机构、尺寸和已开启的运动轨迹</small></span></button>
+    <button id="dxf-btn" class="export-choice"><svg><use href="#i-link"/></svg><span><strong>CAD 几何 DXF</strong><small>毫米坐标 · 当前位形、凸轮轮廓、齿轮节圆与已开启轨迹</small></span></button>
+    <button id="csv-btn" class="export-choice"><svg><use href="#i-download"/></svg><span><strong>周期运动数据 CSV</strong><small>按当前整周或摆动模式输出运动学数据</small></span></button>
+    <button id="curve-pdf-btn" class="export-choice" disabled><svg><use href="#i-chart"/></svg><span><strong>函数曲线 PDF</strong><small>先在“函数曲线”中绘制所需的对比曲线</small></span></button>
+    <button id="curve-csv-btn" class="export-choice" disabled><svg><use href="#i-chart"/></svg><span><strong>函数曲线数据 CSV</strong><small>保存当前曲线中选定节点与显示量的数据</small></span></button>
+  </div></dialog>
+  <dialog id="curves-dialog" aria-labelledby="curves-title"><div class="dialog-heading"><h2 id="curves-title">函数曲线</h2><button id="curves-close" aria-label="关闭函数曲线">×</button></div><p class="muted">选择横轴、显示量和节点，对比轨迹或运动量；悬停查看同一输入位形下的细节。</p><div class="curve-presets" role="group" aria-label="常用对比类型"><span>快速对比</span><button type="button" data-curve-preset="xy" aria-pressed="false">X–Y 轨迹</button><button type="button" data-curve-preset="components" aria-pressed="false">分速度 Vx / Vy</button></div><div class="curve-settings"><label class="field">横轴<select id="curve-x"><option value="angle">输入角度 / °</option><option value="time">时间 / s</option><option value="x">X 坐标 / mm</option></select></label><label class="field">纵轴<select id="curve-y"><option value="speed">线速度 / mm/s</option><option value="acceleration">线加速度 / mm/s²</option><option value="angular">角速度 / rad/s</option><option value="x">X 坐标 / mm</option><option value="y">Y 坐标 / mm</option><option value="components">分速度对比 Vx / Vy / mm/s</option><option value="vx">X 分速度 Vx / mm/s</option><option value="vy">Y 分速度 Vy / mm/s</option><option value="ax">X 加速度 / mm/s²</option><option value="ay">Y 加速度 / mm/s²</option></select></label><button id="curve-compute" class="primary">计算 / 更新曲线</button></div><fieldset class="curve-points"><legend>对比节点（最多 6 个）</legend><div id="curve-points"></div></fieldset><p id="curve-status" role="status">先设置角度输入，再计算周期曲线。</p><div class="curve-plot-wrap"><svg id="curve-plot" xmlns="http://www.w3.org/2000/svg" aria-label="节点运动函数曲线" role="img" viewBox="0 0 1100 450"></svg><div id="curve-tooltip" class="curve-tooltip" hidden></div></div><div id="curve-legend" class="curve-legend"></div><div class="dialog-actions"><button id="curve-export-open">导出曲线…</button><button id="curves-done" class="primary-soft">返回机构</button></div></dialog>
+  <dialog id="examples-dialog" aria-labelledby="examples-title">
+    <div class="dialog-heading"><h2 id="examples-title">机构示例</h2><button id="examples-close" aria-label="关闭机构示例">×</button></div>
+    <p class="muted">选择一个案例开始探索，加载后可以修改尺寸、运行仿真或导出分享。</p>
+    <div class="examples" id="examples"></div>
+    <p class="example-footnote">双摇杆默认区间摆动；位移缩放示例为 2 倍缩放仪。Jansen 默认追踪足端 H。</p>
+  </dialog>
+  <dialog id="help-dialog">
+    <div class="dialog-heading"><h2>从一个铰点开始</h2><button class="dialog-close" aria-label="关闭帮助">×</button></div>
+    <p><a id="manual-link" href="docs/机构工坊_使用说明书_2.2.html" target="_blank" rel="noopener">打开完整使用说明书与案例教程</a> · <a href="output/pdf/机构工坊_使用说明书与案例教程_2.2.pdf" target="_blank" rel="noopener">打开可打印 PDF</a></p>
+    <p>机构工坊用于平面机构的几何与运动学设计，支持连杆、齿轮传动、平面凸轮、固定铰点、机架导轨、活动杆导槽，以及整周旋转或区间摆动输入。</p>
+    <ol>
+      <li><b>选择示例：</b>点击顶部“机构示例”按钮，在弹出的案例列表中选择。Jansen 行走机构是单腿模型，足端 H 默认记录轨迹；运行或点击“绘制一周轨迹”查看迈步路径。</li>
+      <li><b>搭建结构：</b>选择“铰点”在画布点击；选择“连杆”依次连接两个端点，也可点击空白处生成端点。靠近已有铰点时，绿色圆环表示已吸附。</li>
+      <li><b>设置机架与驱动：</b>用“固定铰点”（G）创建或切换机架支点。选择连杆，点击“设为角度输入”；有固定端时绕该端转动，两端活动时控制杆件的方位角。输入模式可选“整周旋转”或“区间摆动”，后者填写最小 / 最大角度后点击“应用范围”。摆动采用正弦往返，端点平滑换向，频率单位为次/分；不可整周运动的机构不会强行切换旋转。</li>
+      <li><b>绘制移动副：</b>选择“滑块 / 导轨”（S），先点击滑块铰点或空白位置。选择“机架上的导轨”时，再点击一个方向点；选择“活动杆上的导槽”时，再点击安装母杆。属性中“铰接滑块”允许相对转动，“固连”把滑块作为所选杆的一部分，并锁定与导轨的夹角。固定铰点也能作为摇块中心。两种导轨均用虚线，自动覆盖完整周期的滑块行程；“最小显示长度”可手动加长，不限制行程。拖动滑块沿原轨道调整位置，固连时整杆平移；拖动虚线或选中导轨的蓝色手柄平移导轨，活动导槽会带动安装母杆。删除安装母杆会删除对应导槽。</li>
+      <li><b>闭合回路：</b>选择“闭合回路”，依次点击已有节点或空白处，至少三个顶点后点回起点、按 Enter 或点击“闭合回路”按钮。默认每条边是独立连杆、顶点保持铰接。一次 Esc 取消草稿，第二次回到选择。需要刚性板件时单独选择“整体刚性构件”；点击已有三角形的顶点也能合并其边。构件属性中的“释放为独立杆件”可恢复铰接。</li>
+      <li><b>设计凸轮：</b>点击顶部“凸轮设计”打开独立窗口，选择直动或摆动从动件。参数化设计可修改基圆、滚子、升程 / 摆角、运动规律与推程 / 休止 / 回程角；安装参数可调整导轨偏距、方向或摆杆支点与长度。切到“手绘轮廓”，沿紫色轮廓按住拖动，自动闭合；可平滑、撤销笔画并预览运动。可生成新机构、加入当前固定输入轴，或从凸轮属性再次打开窗口更新。拖动轴心会带动整套凸轮，滚子及摆杆支点的位置在设计窗口修改。两个凸轮示例均可仿真、观察曲线和导出。</li>
+      <li><b>轨迹合成：</b>点击顶部“轨迹合成”打开独立窗口。选择现有铰点、杆上点或伸出端并提取轨迹，也可手绘、拖动控制点、平滑或导入目标轨迹文件。选择四杆、曲柄滑块、齿轮联动五杆、行星齿轮或自动比较，设置杆长范围、目标 RMS 和搜索精度；四杆和齿轮联动五杆可锁定两个固定支点。闭合轨迹生成整周回转机构，开放轨迹生成沿目标往返的区间摆动机构。求解后比较候选的 RMS、最大采样偏差和实际运动，再应用到画布；橙色虚线保留目标，彩色轨迹来自机构仿真。未达到目标误差的候选仍会明确标注，可深入搜索或修改约束。支持取消、撤销目标修改、目标 / 机构 JSON、偏差 CSV 和对比 PDF；保存后的合成机构可重开窗口继续调整。</li>
+      <li><b>蜗杆传动：</b>示例中的阿基米德圆柱蜗杆（ZA 型）采用圆柱与轴截面直齿简图，蜗轮与蜗杆连接布置。头数 / 蜗轮齿数决定传动比，可在齿轮属性中修改。</li>
+      <li><b>编辑尺寸：</b>在选择工具下点击杆上的数字，输入新长度并确认。也可拖动铰点或编辑属性。</li>
+      <li><b>杆上点：</b>选择“杆上点”后点击母杆任意位置；点会随母杆运动并默认记录轨迹，可在属性中调整连接位置百分比，也可沿杆拖动。</li>
+      <li><b>杆上铰点：</b>选择“杆上铰点”（J）后点击母杆，生成随母杆运动的真实铰点，并直接进入连杆绘制；再点已有铰点或空白处，就能从它引出新杆。母杆保持原长度，铰点的连接位置可按百分比修改或沿杆拖动。新杆需与其他约束配合形成可驱动机构。</li>
+      <li><b>伸出杆：</b>先点击母杆，再点击伸出端，顶部可选垂直或任意侧向。属性中修改长度、相对角度和偏置，端点可拖动。伸出杆与母杆刚性连接，不增加自由度；目前端点用于观测轨迹。</li>
+      <li><b>网格与绘图：</b>网格可独立开关，滚轮缩放时自动调整间距，最小 1 mm。吸附网格采用当前显示间距；绘杆吸附铰点优先。</li>
+      <li><b>仿真调速：</b>画布下方“播放速度”可在 0.1～4 倍之间调节，运行中即时生效，点击“恢复 1×”回到正常播放速度。倍速设置保存在当前浏览器。输入转速 / 摆动频率决定实际运动学数据，播放倍速只控制演示节奏；单步仍推进 2°。</li>
+      <li><b>轨迹与速度：</b>选择铰点，勾选“记录运动轨迹”，运行或点击“绘制一周轨迹”。颜色从蓝到红表示从慢到快，悬停可读取速度及该次经过的输入角度，箭头表示当前位置速度方向。右侧数值单位 mm/s。往返路径可能重叠；不同角度经过同一点时速度可不同。</li>
+      <li><b>切换运动学：</b>右侧“显示量”可选线速度、线加速度或角速度，对应 mm/s、mm/s²、rad/s。角速度属于参考杆；共享铰点可选择相邻杆，逆时针为正。杆上点和伸出端继承母杆角速度。轨迹颜色按大小，悬停保留角速度符号。速度和加速度按当前输入规律计算，包含摆动角加速度及活动导轨的相对运动。</li>
+      <li><b>函数曲线：</b>点击顶部“函数曲线”，可用“X–Y 轨迹”对比节点运动路径，横纵坐标等比例；“分速度 Vx / Vy”同时显示两个方向的速度，实线为 Vx，虚线为 Vy，并保留正负号。横轴可选输入角度、时间或节点的 X 坐标，纵轴可选运动量，可对比最多六个节点。整周旋转计算一周，区间摆动计算一次完整往返，默认用时间横轴；角度横轴保留去程和回程两支，悬停同时显示时刻。转速 / 频率为零时需用角度横轴。不可达区间或奇异位形的数据会断开。</li>
+      <li><b>分享机构：</b>点击“导入机构”旁的“导出”，选择“机构 JSON”（或 Ctrl+S），将文件发给同学；对方点击“导入机构”即可编辑和运行。文件保留结构、尺寸、活动导轨、固连关系、输入模式、范围、当前往返相位和显示设置。已有可见轨迹会在导入后重新计算；曲线可重新绘制。本版保存 v9 文件，需用 2.1 或更新版本打开；v1～v8 旧版机构 JSON 也能导入。</li>
+      <li><b>绘图辅助：</b>导入底图，在预览中点选两个已知长度端点标定比例；可调整位置、旋转与不透明度。选择距离或角度测量后在画布选两点或三点，数值随运动更新。底图及测量随机构 JSON 保存，使用案例设置 v2，需要 2.2 或更新版。导出中的“CAD 几何 DXF”保存毫米坐标的当前杆件、凸轮轮廓、齿轮节圆和开启的轨迹。</li>
+      <li><b>我的案例：</b>导入和导出的案例加入左侧列表，点击即可重新加载。列表最多保存 30 个案例，仅保存在当前浏览器；删除列表项不影响当前机构或已导出的文件。修改案例后需再次导出才能分享新版本。</li>
+      <li><b>统一导出：</b>顶部“导出”集中提供机构 JSON、机构与轨迹 PDF、周期运动数据 CSV、函数曲线 PDF 和曲线数据 CSV。机构 PDF 包含已记录且开启的轨迹，完整轨迹先用“绘制一周轨迹”或“绘制往返轨迹”。PDF 为 A4 横向图像版；运动数据按驱动相位每 1° 采样，含输入角度、相位、时间、坐标、速度、加速度、角速度和约束误差。</li>
+      <li><b>自由度：</b>机构概况显示 F = 3n − 2Pₗ − Pₕ、构件数及运动副数。复合铰链按 k − 1 计数；铰接滑块另计构件，与杆固连的滑块合并计数。几何自由度另由初始位形 Jacobian 秩估计。</li>
+<li><strong>齿轮与连杆：</strong>选“齿轮”，先点轴心（空白处默认固定轴），再点偏心点。也可选一根现有杆的两端，将齿轮固连在该杆上；偏心点可继续连接杆件。分度圆直径 d = mz，与偏心距分别设置。同轴复合齿轮重复选同一轴心和同一偏心点。</li><li><strong>啮合：</strong>选“啮合”后点两只齿轮；外啮合反向、内啮合同向，蜗杆需先选。定轴啮合会对齐第二个轴的中心距。活动轴心先用连杆或杆上铰点连接到行星架，再在啮合栏选择行星架；两个轴心都应在该架上。</li><li><strong>轮系与传动比：</strong>右侧显示每个构件相对于输入的总传动比、转速，以及各对啮合的方程。行星架可选择参考杆作为角度输入，齿圈可用固定铰点工具解除轴向参考点的固定，观察自由度变化；自由差动轮系需要第二项约束。</li><li><strong>完整轨迹：</strong>减速轮的轨迹往往需要输入转动多周。右侧可设置 1～300 输入圈，或采用可确定的完整轮系周期。累计输入角度保存到分享文件；函数曲线使用累计角度，不把多周数据折叠到一周。</li><li><strong>蜗轮蜗杆与齿形：</strong>蜗轮蜗杆在此为正交轴传动的平面示意，按头数 / 蜗轮齿数计算转速，正方向在啮合属性中指定。蜗杆的自由度按等效轴约束统计。齿形为教学示意，未计算真实渐开线、齿隙、干涉、接触力或三维实体。</li>
+    </ol>
+    <div class="help-callout">拖动铰点会重新确定相邻杆长。修改杆长会保持其他尺寸并尝试闭合。仿真中开始编辑会把当前位形作为新的初始位置。编辑机构或转速会清空旧轨迹。</div>
+    <p class="muted">快捷键：V 选择 · P 铰点 · G 固定铰点 · L 连杆 · C 闭合回路 · S 滑块 / 导轨 · J 杆上铰点 · T 杆上点 · E 伸出杆 · F 适应画布 · 空格运行/暂停 · Delete 删除 · Ctrl+Z 撤销 · Ctrl+Y 重做 · Ctrl+S 导出机构 JSON。一次 Esc 取消当前绘制步骤，连续第二次 Esc 回到选择 / 拖动。滚轮缩放，右键或中键平移。</p>
+    <p class="muted">特殊几何下公式自由度和局部几何估计可能不同。奇异位置的速度显示为不可用。当前不计算受力、碰撞、弹簧动力学，不直接读取原版 .linkage2 文件。</p>
+    <button class="primary dialog-close">开始设计</button>
+  </dialog>
+  <dialog id="action-dialog"><form method="dialog"><div class="dialog-heading"><h2 id="action-title">新建机构</h2></div><p id="action-description"></p><label id="action-input-label"><span id="action-input-caption">名称</span><input id="action-input" maxlength="80" autocomplete="off"></label><div class="dialog-actions"><button value="cancel" formnovalidate>取消</button><button value="ok" class="primary">确定</button></div></form></dialog>
+  <script src="src/geometry.js"></script>
+  <script src="src/model.js"></script>
+  <script src="src/gears.js"></script>
+  <script src="src/cams.js"></script>
+  <script src="src/drive.js"></script>
+  <script src="src/drafting.js"></script>
+  <script src="src/cases.js"></script>
+  <script src="src/solver.js"></script>
+  <script src="src/motion.js"></script>
+  <script src="src/editing.js"></script>
+  <script src="src/view.js"></script>
+  <script src="src/curves.js"></script>
+  <script src="src/synthesis.js"></script>
+  <script src="src/export.js"></script>
+  <script src="src/camdesigner.js"></script>
+  <script src="src/synthdesigner.js"></script>
+  <script src="src/draftdesigner.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "双滑块机构（椭圆仪）",
+  "nodes": [
+    {
+      "id": "B",
+      "name": "B",
+      "x": -107.24622203665692,
+      "y": 0,
+      "fixed": false,
+      "trace": true
+    },
+    {
+      "id": "C",
+      "name": "C",
+      "x": 0,
+      "y": 89.9902653561155,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "椭圆仪连杆",
+      "a": "B",
+      "b": "C",
+      "length": 139.99999999999997,
+      "color": "#3877e8"
+    }
+  ],
+  "sliders": [
+    {
+      "id": "S1",
+      "node": "B",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "length": 350
+    },
+    {
+      "id": "S2",
+      "node": "C",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 90,
+      "length": 350
+    }
+  ],
+  "attachments": [
+    {
+      "id": "T1",
+      "name": "椭圆轨迹点",
+      "link": "L1",
+      "t": 0.35,
+      "along": 0,
+      "normal": 0,
+      "arm": false,
+      "trace": true
+    }
+  ],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": null,
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": "B",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

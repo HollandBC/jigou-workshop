@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="490" height="316" preserveAspectRatio="xMinYMin meet" viewBox="0 0 490 316" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="490" height="316"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-316)" style="clip-path: url(#clip)">
+		<g transform="">
+			<path d="M 60,40 L 372,40 Z" style="stroke: rgb(67%,72%,79%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 5, 4;"/>
+			<path d="M 60,40 L 119.751467,90.137434 Z" style="stroke: rgb(21%,46%,90%); stroke-linecap: butt; stroke-width: 3.4;"/>
+			<text x="69.81909265664015" y="77.06871677777502" style="font-family: YaHei; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,154) scale(1,-1)">40 mm</text>
+			<path d="M 119.751467,90.137434 L 396.43853,272.720343 Z" style="stroke: rgb(7%,64%,60%); stroke-linecap: butt; stroke-width: 3.4;"/>
+			<text x="234.5198029151768" y="193.42888850409452" style="font-family: YaHei; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,386) scale(1,-1)">170 mm</text>
+			<path d="M 372,40 L 396.43853,272.720343 Z" style="stroke: rgb(89%,58%,20%); stroke-linecap: butt; stroke-width: 3.4;"/>
+			<text x="360.6440696335367" y="168.3601717263195" style="font-family: YaHei; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,336) scale(1,-1)">120 mm</text>
+			<polygon points="49 27, 60 40, 71 27" style="stroke: rgb(39%,48%,59%); stroke-linecap: butt; stroke-width: 1; fill: rgb(86%,89%,93%); fill-rule: evenodd;"/>
+			<circle cx="60.0" cy="40.0" r="4.6" style="stroke: rgb(25%,35%,47%); stroke-linecap: butt; stroke-width: 1.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="55.08984375" y="11.0" style="font-family: YaHeiBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,22) scale(1,-1)">O</text>
+			<circle cx="119.75146656328029" cy="90.13743355555006" r="4.6" style="stroke: rgb(25%,35%,47%); stroke-linecap: butt; stroke-width: 1.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="115.23974781328029" y="61.13743355555006" style="font-family: YaHeiBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,122) scale(1,-1)">A</text>
+			<circle cx="396.4385298920733" cy="272.720343452639" r="4.6" style="stroke: rgb(25%,35%,47%); stroke-linecap: butt; stroke-width: 1.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="392.3369673920733" y="287.720343452639" style="font-family: YaHeiBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,575) scale(1,-1)">B</text>
+			<polygon points="361 27, 372 40, 383 27" style="stroke: rgb(39%,48%,59%); stroke-linecap: butt; stroke-width: 1; fill: rgb(86%,89%,93%); fill-rule: evenodd;"/>
+			<circle cx="372.0" cy="40.0" r="4.6" style="stroke: rgb(25%,35%,47%); stroke-linecap: butt; stroke-width: 1.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="367.2509765625" y="11.0" style="font-family: YaHeiBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,22) scale(1,-1)">D</text>
+			<text x="159.761962890625" y="14" style="font-family: YaHei; font-size: 11px;fill: rgb(36%,45%,55%); stroke:none;" transform="translate(0,28) scale(1,-1)">固定支点间距 160 mm</text>
+		</g>
+	</g>
+</svg>

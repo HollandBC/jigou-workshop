@@ -1,0 +1,219 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "Jansen 行走机构",
+  "nodes": [
+    {
+      "id": "O",
+      "name": "固定支点 O",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "A",
+      "name": "曲柄轴 A",
+      "x": 38,
+      "y": 7.8,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 49.49066664678467,
+      "y": 17.44181414529809,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "C",
+      "name": "C",
+      "x": 5.462844344418535,
+      "y": 41.13887859031471,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "D",
+      "name": "D",
+      "x": -39.32322865923346,
+      "y": 7.854532946881143,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "E",
+      "name": "E",
+      "x": 17.170678425438293,
+      "y": -35.35049932335026,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "F",
+      "name": "F",
+      "x": -18.146284630782866,
+      "y": -25.370413127053588,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "H",
+      "name": "足端 H",
+      "x": 11.46800451858984,
+      "y": -84.01752625444757,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "输入曲柄 m",
+      "a": "A",
+      "b": "B",
+      "length": 15,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "上摇杆 b",
+      "a": "O",
+      "b": "C",
+      "length": 41.5,
+      "color": "#14a59b"
+    },
+    {
+      "id": "L3",
+      "name": "上三角边 d",
+      "a": "O",
+      "b": "D",
+      "length": 40.1,
+      "color": "#e59633"
+    },
+    {
+      "id": "L4",
+      "name": "上三角边 e",
+      "a": "C",
+      "b": "D",
+      "length": 55.8,
+      "color": "#9b70d5"
+    },
+    {
+      "id": "L5",
+      "name": "上连杆 j",
+      "a": "B",
+      "b": "C",
+      "length": 50,
+      "color": "#e16880"
+    },
+    {
+      "id": "L6",
+      "name": "下摇杆 c",
+      "a": "O",
+      "b": "E",
+      "length": 39.3,
+      "color": "#64768d"
+    },
+    {
+      "id": "L7",
+      "name": "下连杆 k",
+      "a": "B",
+      "b": "E",
+      "length": 61.9,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L8",
+      "name": "传动连杆 f",
+      "a": "D",
+      "b": "F",
+      "length": 39.4,
+      "color": "#14a59b"
+    },
+    {
+      "id": "L9",
+      "name": "足部三角边 g",
+      "a": "E",
+      "b": "F",
+      "length": 36.7,
+      "color": "#e59633"
+    },
+    {
+      "id": "L10",
+      "name": "足部三角边 h",
+      "a": "F",
+      "b": "H",
+      "length": 65.7,
+      "color": "#9b70d5"
+    },
+    {
+      "id": "L11",
+      "name": "足部三角边 i",
+      "a": "E",
+      "b": "H",
+      "length": 49,
+      "color": "#e16880"
+    }
+  ],
+  "sliders": [],
+  "attachments": [],
+  "bodies": [
+    {
+      "id": "R1",
+      "name": "上部刚性三角 O-C-D",
+      "nodes": [
+        "O",
+        "C",
+        "D"
+      ],
+      "links": [
+        "L2",
+        "L4",
+        "L3"
+      ],
+      "color": "#3877e8"
+    },
+    {
+      "id": "R2",
+      "name": "足部刚性三角 E-F-H",
+      "nodes": [
+        "E",
+        "F",
+        "H"
+      ],
+      "links": [
+        "L9",
+        "L10",
+        "L11"
+      ],
+      "color": "#14a59b"
+    }
+  ],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "A",
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": null,
+    "angularReferences": {},
+    "restoreTraces": false
+  }
+}

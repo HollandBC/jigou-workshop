@@ -1,0 +1,118 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "阿基米德圆柱蜗杆传动（ZA 型简图）",
+  "nodes": [
+    {
+      "id": "O",
+      "name": "O",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "P",
+      "name": "P",
+      "x": 0,
+      "y": 50,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "A",
+      "name": "A",
+      "x": 9.192533317427737,
+      "y": 7.713451316238471,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 13.155696691002717,
+      "y": 54.78828200655936,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "齿轮固连参考杆",
+      "a": "O",
+      "b": "A",
+      "length": 12,
+      "color": "#3877e8",
+      "rotor": true
+    },
+    {
+      "id": "L2",
+      "name": "齿轮固连参考杆",
+      "a": "P",
+      "b": "B",
+      "length": 13.999999999999998,
+      "color": "#14a59b",
+      "rotor": true
+    }
+  ],
+  "sliders": [],
+  "attachments": [],
+  "bodies": [],
+  "gears": [
+    {
+      "id": "G1",
+      "name": "单头蜗杆",
+      "kind": "worm",
+      "center": "O",
+      "link": "L1",
+      "teeth": 20,
+      "module": 2,
+      "color": "#3877e8",
+      "starts": 1
+    },
+    {
+      "id": "G2",
+      "name": "蜗轮",
+      "kind": "wheel",
+      "center": "P",
+      "link": "L2",
+      "teeth": 40,
+      "module": 2,
+      "color": "#14a59b"
+    }
+  ],
+  "meshes": [
+    {
+      "id": "H1",
+      "name": "蜗轮蜗杆",
+      "a": "G1",
+      "b": "G2",
+      "type": "worm",
+      "direction": 1
+    }
+  ],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "O",
+    "initialAngle": 40,
+    "rpm": 30,
+    "sampleTurns": 40
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 0,
+    "metric": "speed",
+    "speedNode": null,
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

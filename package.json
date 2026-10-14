@@ -1,0 +1,11 @@
+{
+  "name": "jigou-workshop",
+  "version": "2.2",
+  "private": true,
+  "description": "可离线运行的中文平面机构编辑与运动仿真工具",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "build": "node tools/build.cjs",
+    "start": "node tools/server.cjs"
+  }
+}

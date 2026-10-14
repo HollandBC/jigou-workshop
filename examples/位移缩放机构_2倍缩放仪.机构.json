@@ -1,0 +1,139 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "位移缩放机构（2 倍缩放仪）",
+  "nodes": [
+    {
+      "id": "O",
+      "name": "O",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "F",
+      "name": "F",
+      "x": 70,
+      "y": 60,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "输入轨迹点 P",
+      "x": 85.32088886237956,
+      "y": 72.85575219373078,
+      "fixed": false,
+      "trace": true
+    },
+    {
+      "id": "A",
+      "name": "A",
+      "x": -3.739299891535886,
+      "y": 59.88336694209136,
+      "fixed": false,
+      "trace": false,
+      "onLink": {
+        "link": "L2",
+        "t": 0.5
+      }
+    },
+    {
+      "id": "D",
+      "name": "D",
+      "x": -7.478599783071772,
+      "y": 119.76673388418271,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "C",
+      "name": "C",
+      "x": 81.58158897084368,
+      "y": 132.73911913582214,
+      "fixed": false,
+      "trace": false
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "输入曲柄",
+      "a": "F",
+      "b": "B",
+      "length": 19.999999999999996,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "基准长杆",
+      "a": "O",
+      "b": "D",
+      "length": 120,
+      "color": "#14a59b"
+    },
+    {
+      "id": "L3",
+      "name": "平行杆 1",
+      "a": "A",
+      "b": "B",
+      "length": 89.99999999999999,
+      "color": "#e59633"
+    },
+    {
+      "id": "L4",
+      "name": "平行杆 2",
+      "a": "B",
+      "b": "C",
+      "length": 60,
+      "color": "#9b70d5"
+    },
+    {
+      "id": "L5",
+      "name": "输出延伸母杆",
+      "a": "D",
+      "b": "C",
+      "length": 90,
+      "color": "#e16880"
+    }
+  ],
+  "sliders": [],
+  "attachments": [
+    {
+      "id": "T1",
+      "name": "放大输出 Q（2 倍）",
+      "link": "L5",
+      "t": 1,
+      "along": 90,
+      "normal": 0,
+      "arm": true,
+      "trace": true
+    }
+  ],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "F",
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": "B",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "使用说明 · 从零搭建曲柄滑块",
+  "nodes": [
+    {
+      "id": "O",
+      "name": "O",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "A",
+      "name": "A",
+      "x": 34.64101615137755,
+      "y": 19.999999999999996,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 152.96261181336988,
+      "y": 0,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "主动曲柄",
+      "a": "O",
+      "b": "A",
+      "length": 40,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "连杆",
+      "a": "A",
+      "b": "B",
+      "length": 120,
+      "color": "#14a59b"
+    }
+  ],
+  "sliders": [
+    {
+      "id": "S1",
+      "node": "B",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "length": 260
+    }
+  ],
+  "attachments": [],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "O",
+    "initialAngle": 30,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 30,
+    "metric": "speed",
+    "speedNode": "B",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

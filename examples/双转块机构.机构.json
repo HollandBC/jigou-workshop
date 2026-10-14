@@ -1,0 +1,135 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "双转块机构",
+  "nodes": [
+    {
+      "id": "A",
+      "name": "A",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "D",
+      "name": "D",
+      "x": 120,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 16.852977748617516,
+      "y": 14.141327413103863,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "F",
+      "name": "F",
+      "x": 105.85867258689613,
+      "y": 16.852977748617516,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "C",
+      "name": "C",
+      "x": 70.41889066001582,
+      "y": 59.08846518073247,
+      "fixed": false,
+      "trace": true
+    },
+    {
+      "id": "E",
+      "name": "E",
+      "x": 139.36289054072384,
+      "y": 116.93935005252101,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "主动转块",
+      "a": "A",
+      "b": "B",
+      "length": 21.999999999999996,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "从动转块",
+      "a": "D",
+      "b": "F",
+      "length": 22,
+      "color": "#14a59b"
+    },
+    {
+      "id": "L3",
+      "name": "十字导槽构件",
+      "a": "C",
+      "b": "E",
+      "length": 90,
+      "color": "#e59633"
+    }
+  ],
+  "sliders": [
+    {
+      "id": "S1",
+      "node": "A",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "guide": "L3",
+      "block": "L1",
+      "blockAngle": 0,
+      "length": 300
+    },
+    {
+      "id": "S2",
+      "node": "D",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 90,
+      "guide": "L3",
+      "block": "L2",
+      "blockAngle": 0,
+      "length": 280
+    }
+  ],
+  "attachments": [],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "A",
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": "C",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

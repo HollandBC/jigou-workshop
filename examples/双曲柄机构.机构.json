@@ -1,0 +1,92 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "双曲柄机构",
+  "nodes": [
+    {
+      "id": "A",
+      "name": "A",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "D",
+      "name": "D",
+      "x": 40,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 53.62311101832846,
+      "y": 44.99513267805775,
+      "fixed": false,
+      "trace": true
+    },
+    {
+      "id": "C",
+      "name": "C",
+      "x": 117.9634690528195,
+      "y": -17.935927443264738,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "主动件",
+      "a": "A",
+      "b": "B",
+      "length": 69.99999999999999,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "连杆",
+      "a": "B",
+      "b": "C",
+      "length": 90.00000000000001,
+      "color": "#14a59b"
+    },
+    {
+      "id": "L3",
+      "name": "输出曲柄",
+      "a": "D",
+      "b": "C",
+      "length": 80.00000000000001,
+      "color": "#e59633"
+    }
+  ],
+  "sliders": [],
+  "attachments": [],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "A",
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": "B",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

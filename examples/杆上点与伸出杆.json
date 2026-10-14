@@ -1,0 +1,123 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "杆上点与伸出杆",
+  "nodes": [
+    {
+      "id": "A",
+      "name": "A",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 34.47199994035401,
+      "y": 28.925442435894265,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "C",
+      "name": "C",
+      "x": 166.6845217425511,
+      "y": 99.77633571680893,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "D",
+      "name": "D",
+      "x": 160,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "输入曲柄",
+      "a": "A",
+      "b": "B",
+      "length": 45,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "连杆",
+      "a": "B",
+      "b": "C",
+      "length": 150,
+      "color": "#14a59b"
+    },
+    {
+      "id": "L3",
+      "name": "输出摇杆",
+      "a": "D",
+      "b": "C",
+      "length": 99.99999999999999,
+      "color": "#e59633"
+    }
+  ],
+  "sliders": [],
+  "attachments": [
+    {
+      "id": "T1",
+      "name": "杆上点 T1",
+      "link": "L2",
+      "t": 0.5,
+      "along": 0,
+      "normal": 0,
+      "arm": false,
+      "trace": true
+    },
+    {
+      "id": "T2",
+      "name": "垂直伸出端 T2",
+      "link": "L2",
+      "t": 0.5,
+      "along": 0,
+      "normal": 50,
+      "arm": true,
+      "trace": true
+    },
+    {
+      "id": "T3",
+      "name": "侧向伸出端 T3",
+      "link": "L2",
+      "t": 0.72,
+      "along": 35,
+      "normal": -35,
+      "arm": true,
+      "trace": true
+    }
+  ],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "A",
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": null,
+    "angularReferences": {},
+    "restoreTraces": false
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "摆动从动件平面凸轮机构",
+  "nodes": [
+    {
+      "id": "P1",
+      "name": "凸轮轴 O",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "P2",
+      "name": "凸轮相位 A",
+      "x": 12,
+      "y": 0,
+      "fixed": false,
+      "trace": false
+    },
+    {
+      "id": "P3",
+      "name": "摆杆支点 B",
+      "x": 75,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "P4",
+      "name": "从动件 F",
+      "x": 22.83333333333333,
+      "y": 38.77678285893362,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "凸轮轴相位杆",
+      "a": "P1",
+      "b": "P2",
+      "length": 12,
+      "color": "#9b70d5",
+      "rotor": true
+    },
+    {
+      "id": "L2",
+      "name": "凸轮从动摆杆",
+      "a": "P3",
+      "b": "P4",
+      "length": 65,
+      "color": "#14a59b"
+    }
+  ],
+  "sliders": [],
+  "attachments": [],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [
+    {
+      "type": "oscillate",
+      "source": "parametric",
+      "baseRadius": 40,
+      "rollerRadius": 5,
+      "lift": 25,
+      "swing": 24,
+      "rise": 120,
+      "dwell": 60,
+      "fall": 120,
+      "law": "cycloidal",
+      "offset": 0,
+      "axisAngle": 90,
+      "pivotX": 75,
+      "pivotY": 0,
+      "armLength": 65,
+      "side": 1,
+      "zeroAngle": 0,
+      "id": "C1",
+      "name": "摆动从动件平面凸轮机构",
+      "center": "P1",
+      "link": "L1",
+      "node": "P4",
+      "color": "#9b70d5",
+      "pivot": "P3",
+      "followerLink": "L2"
+    }
+  ],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "P1",
+    "initialAngle": 0,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 0,
+    "metric": "speed",
+    "speedNode": "P4",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

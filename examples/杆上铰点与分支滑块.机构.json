@@ -1,0 +1,98 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "杆上铰点与分支滑块",
+  "nodes": [
+    {
+      "id": "A",
+      "name": "固定支点 A",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "曲柄端 B",
+      "x": 40,
+      "y": 0,
+      "fixed": false,
+      "trace": true
+    },
+    {
+      "id": "J1",
+      "name": "杆上铰点 J1",
+      "x": 20,
+      "y": 0,
+      "fixed": false,
+      "trace": true,
+      "onLink": {
+        "link": "L1",
+        "t": 0.5
+      }
+    },
+    {
+      "id": "F",
+      "name": "分支滑块 F",
+      "x": 120,
+      "y": 0,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "母杆曲柄",
+      "a": "A",
+      "b": "B",
+      "length": 40,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "从杆上铰点引出的新杆",
+      "a": "J1",
+      "b": "F",
+      "length": 100,
+      "color": "#14a59b"
+    }
+  ],
+  "sliders": [
+    {
+      "id": "S1",
+      "node": "F",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0
+    }
+  ],
+  "attachments": [],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "A",
+    "initialAngle": 0,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 0,
+    "metric": "speed",
+    "speedNode": "F",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

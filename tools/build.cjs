@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..');
+let html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const elementIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+if(new Set(elementIds).size!==elementIds.length)throw new Error('源码页面存在重复元素 ID，请先修复再生成离线版。');
+const expectedScripts=[...html.matchAll(/<script src="(src\/[a-z]+\.js)"><\/script>/g)].length;
+html=html.replace('<link rel="stylesheet" href="styles.css">',()=>'<style>\n'+fs.readFileSync(path.join(root,'styles.css'),'utf8')+'\n</style>');
+html=html.replace(/<script src="(src\/[a-z]+\.js)"><\/script>/g,(_,file)=>'<script>\n'+fs.readFileSync(path.join(root,file),'utf8').replace(/<\/script/gi,'<\\/script')+'\n</script>');
+const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+if(scripts.length!==expectedScripts||/<script\s+src=|<link[^>]+rel=/.test(html))throw new Error('离线包仍有外部脚本或样式引用。');
+for(const [i,script]of scripts.entries())new vm.Script(script[1],{filename:'offline-script-'+i});
+const output=path.join(root,'机构工坊_离线版.html');fs.writeFileSync(output,html,'utf8');console.log(output);
+console.log(`已验证 ${scripts.length} 个内嵌脚本语法，无外部样式和脚本引用。`);

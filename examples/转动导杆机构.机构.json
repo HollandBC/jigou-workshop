@@ -1,0 +1,96 @@
+{
+  "format": "jigou-workshop",
+  "version": 9,
+  "name": "转动导杆机构",
+  "nodes": [
+    {
+      "id": "A",
+      "name": "A",
+      "x": 0,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "x": 53.62311101832846,
+      "y": 44.99513267805775,
+      "fixed": false,
+      "trace": true
+    },
+    {
+      "id": "D",
+      "name": "D",
+      "x": 40,
+      "y": 0,
+      "fixed": true,
+      "trace": false
+    },
+    {
+      "id": "E",
+      "name": "E",
+      "x": 77.67113136131402,
+      "y": 124.42220807379454,
+      "fixed": false,
+      "trace": true
+    }
+  ],
+  "links": [
+    {
+      "id": "L1",
+      "name": "输入曲柄",
+      "a": "A",
+      "b": "B",
+      "length": 69.99999999999999,
+      "color": "#3877e8"
+    },
+    {
+      "id": "L2",
+      "name": "转动槽杆",
+      "a": "D",
+      "b": "E",
+      "length": 130,
+      "color": "#14a59b"
+    }
+  ],
+  "sliders": [
+    {
+      "id": "S1",
+      "node": "B",
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "angle": 0,
+      "guide": "L2",
+      "length": 260
+    }
+  ],
+  "attachments": [],
+  "bodies": [],
+  "gears": [],
+  "meshes": [],
+  "cams": [],
+  "synthesis": null,
+  "motor": {
+    "link": "L1",
+    "pivot": "A",
+    "initialAngle": 40,
+    "rpm": 12
+  },
+  "case": {
+    "version": 1,
+    "showGrid": true,
+    "snapGrid": true,
+    "snapJoints": true,
+    "showDimensions": true,
+    "showTraces": true,
+    "showSpeed": true,
+    "angle": 40,
+    "metric": "speed",
+    "speedNode": "B",
+    "angularReferences": {},
+    "restoreTraces": true
+  }
+}

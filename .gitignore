@@ -1,0 +1,18 @@
+# Local test output and portable validation tools
+/tmp/
+/node_modules/
+__pycache__/
+*.pyc
+
+# Editor and local account settings
+/.codex/
+/.agents/
+/.vscode/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Local packages are published separately, not committed as nested archives
+*.zip
+*.7z
