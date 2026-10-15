@@ -38,7 +38,7 @@
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
   </svg>
   <header class="app-header">
-    <div class="brand"><div class="brand-mark"><svg><use href="#i-link"/></svg></div><div><strong>机构工坊</strong><span>平面机构设计与仿真</span></div><span class="version">2.2</span></div>
+    <div class="brand"><div class="brand-mark"><svg><use href="#i-link"/></svg></div><div><strong>机构工坊</strong><span>平面机构设计与仿真</span></div><span class="version">2.3</span></div>
     <nav class="file-actions" aria-label="文件操作">
       <button id="new-btn"><svg><use href="#i-plus"/></svg>新建</button>
       <button id="examples-btn" aria-label="机构示例" aria-haspopup="dialog" aria-controls="examples-dialog" title="选择内置机构案例"><svg><use href="#i-examples"/></svg><span class="full-label">机构示例</span><span class="short-label" aria-hidden="true">示例</span></button>
@@ -133,7 +133,7 @@
   </dialog>
   <dialog id="help-dialog">
     <div class="dialog-heading"><h2>从一个铰点开始</h2><button class="dialog-close" aria-label="关闭帮助">×</button></div>
-    <p><a id="manual-link" href="docs/机构工坊_使用说明书_2.2.html" target="_blank" rel="noopener">打开完整使用说明书与案例教程</a> · <a href="output/pdf/机构工坊_使用说明书与案例教程_2.2.pdf" target="_blank" rel="noopener">打开可打印 PDF</a></p>
+    <p><a id="manual-link" href="docs/机构工坊_使用说明书_2.3.html" target="_blank" rel="noopener">打开完整使用说明书与案例教程</a> · <a href="output/pdf/机构工坊_使用说明书与案例教程_2.3.pdf" target="_blank" rel="noopener">打开可打印 PDF</a></p>
     <p>机构工坊用于平面机构的几何与运动学设计，支持连杆、齿轮传动、平面凸轮、固定铰点、机架导轨、活动杆导槽，以及整周旋转或区间摆动输入。</p>
     <ol>
       <li><b>选择示例：</b>点击顶部“机构示例”按钮，在弹出的案例列表中选择。Jansen 行走机构是单腿模型，足端 H 默认记录轨迹；运行或点击“绘制一周轨迹”查看迈步路径。</li>
@@ -154,6 +154,7 @@
       <li><b>切换运动学：</b>右侧“显示量”可选线速度、线加速度或角速度，对应 mm/s、mm/s²、rad/s。角速度属于参考杆；共享铰点可选择相邻杆，逆时针为正。杆上点和伸出端继承母杆角速度。轨迹颜色按大小，悬停保留角速度符号。速度和加速度按当前输入规律计算，包含摆动角加速度及活动导轨的相对运动。</li>
       <li><b>函数曲线：</b>点击顶部“函数曲线”，可用“X–Y 轨迹”对比节点运动路径，横纵坐标等比例；“分速度 Vx / Vy”同时显示两个方向的速度，实线为 Vx，虚线为 Vy，并保留正负号。横轴可选输入角度、时间或节点的 X 坐标，纵轴可选运动量，可对比最多六个节点。整周旋转计算一周，区间摆动计算一次完整往返，默认用时间横轴；角度横轴保留去程和回程两支，悬停同时显示时刻。转速 / 频率为零时需用角度横轴。不可达区间或奇异位形的数据会断开。</li>
       <li><b>分享机构：</b>点击“导入机构”旁的“导出”，选择“机构 JSON”（或 Ctrl+S），将文件发给同学；对方点击“导入机构”即可编辑和运行。文件保留结构、尺寸、活动导轨、固连关系、输入模式、范围、当前往返相位和显示设置。已有可见轨迹会在导入后重新计算；曲线可重新绘制。本版保存 v9 文件，需用 2.1 或更新版本打开；v1～v8 旧版机构 JSON 也能导入。</li>
+      <li><b>轨迹约束：</b>在“轨迹合成”中先画轨迹，再点“添加两个固定铰点”，依次放置 O 与 D。可拖动或展开坐标精确调整，锁定时只比较四杆与齿轮联动五杆。支持交换、清除与撤销；目标轨迹文件一并保存铰点和杆长范围。</li>
       <li><b>绘图辅助：</b>导入底图，在预览中点选两个已知长度端点标定比例；可调整位置、旋转与不透明度。选择距离或角度测量后在画布选两点或三点，数值随运动更新。底图及测量随机构 JSON 保存，使用案例设置 v2，需要 2.2 或更新版。导出中的“CAD 几何 DXF”保存毫米坐标的当前杆件、凸轮轮廓、齿轮节圆和开启的轨迹。</li>
       <li><b>我的案例：</b>导入和导出的案例加入左侧列表，点击即可重新加载。列表最多保存 30 个案例，仅保存在当前浏览器；删除列表项不影响当前机构或已导出的文件。修改案例后需再次导出才能分享新版本。</li>
       <li><b>统一导出：</b>顶部“导出”集中提供机构 JSON、机构与轨迹 PDF、周期运动数据 CSV、函数曲线 PDF 和曲线数据 CSV。机构 PDF 包含已记录且开启的轨迹，完整轨迹先用“绘制一周轨迹”或“绘制往返轨迹”。PDF 为 A4 横向图像版；运动数据按驱动相位每 1° 采样，含输入角度、相位、时间、坐标、速度、加速度、角速度和约束误差。</li>

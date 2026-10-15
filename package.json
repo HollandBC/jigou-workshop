@@ -1,6 +1,6 @@
 {
   "name": "jigou-workshop",
-  "version": "2.2",
+  "version": "2.3",
   "private": true,
   "description": "可离线运行的中文平面机构编辑与运动仿真工具",
   "scripts": {

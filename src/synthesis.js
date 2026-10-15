@@ -166,8 +166,14 @@
   function metadata(input){
     if(input==null)return null;if(!input||input.version!==1||!input.target||!input.settings)throw new Error('轨迹合成设计数据无效。');const points=cleanPoints(input.target.points),o=options(input.settings);prepare(points,o);return{version:1,target:{points,name:String(input.target.name||'目标轨迹').slice(0,80),source:['mechanism','drawn','import','preset'].includes(input.target.source)?input.target.source:'import'},settings:{family:o.family,quality:o.quality,minLength:o.minLength,maxLength:o.maxLength,tolerance:o.tolerance,allowReverse:o.allowReverse,closed:o.closed,smoothing:o.smoothing,...(o.anchors?{anchors:o.anchors}:{})}};
   }
-  function readPath(input){if(!input||input.format!=='jigou-trajectory'||input.version!==1||input.unit!=='mm'||typeof input.closed!=='boolean')throw new Error('需要机构工坊轨迹 v1 文件（单位 mm）。');const points=cleanPoints(input.points);prepare(points,{closed:input.closed});return{points,closed:input.closed,name:String(input.name||'导入轨迹').slice(0,80),source:'import'};}
-  function writePath(points,closed,name='目标轨迹'){return{format:'jigou-trajectory',version:1,unit:'mm',name:String(name).slice(0,80),closed:!!closed,points:cleanPoints(points)};}
+  function pathConstraints(input){
+    if(!input||typeof input!=='object'||Array.isArray(input))throw new Error('目标轨迹的约束设置无效。');
+    if(Object.hasOwn(input,'anchors')&&(!Array.isArray(input.anchors)||input.anchors.length!==2))throw new Error('固定铰点约束需要两个位置。');
+    const o=options({...(Object.hasOwn(input,'minLength')?{minLength:input.minLength}:{}),...(Object.hasOwn(input,'maxLength')?{maxLength:input.maxLength}:{}),...(Object.hasOwn(input,'anchors')?{anchors:input.anchors}:{})});
+    return{minLength:o.minLength,maxLength:o.maxLength,...(o.anchors?{anchors:o.anchors}:{})};
+  }
+  function readPath(input){if(!input||input.format!=='jigou-trajectory'||input.version!==1||input.unit!=='mm'||typeof input.closed!=='boolean')throw new Error('需要机构工坊轨迹 v1 文件（单位 mm）。');const points=cleanPoints(input.points);prepare(points,{closed:input.closed});return{points,closed:input.closed,name:String(input.name||'导入轨迹').slice(0,80),source:'import',...(Object.hasOwn(input,'constraints')?{constraints:pathConstraints(input.constraints)}:{})};}
+  function writePath(points,closed,name='目标轨迹',constraints){const result={format:'jigou-trajectory',version:1,unit:'mm',name:String(name).slice(0,80),closed:!!closed,points:cleanPoints(points)};prepare(result.points,{closed:result.closed});if(constraints!==undefined)result.constraints=pathConstraints(constraints);return result;}
   function csv(fit,target){const header='点序号,目标X_mm,目标Y_mm,候选X_mm,候选Y_mm,位置偏差_mm';return '\uFEFF'+[header,...fit.fitted.map((p,i)=>[i+1,target.points[i].x,target.points[i].y,p.x,p.y,G.distance(p,target.points[i])].map(x=>Number(x.toFixed(6))).join(','))].join('\r\n');}
   root.JiGou.synthesis={families,qualities,gearPairs,gearSpec,cycle,sizeLabels,gearSummary,cleanPoints,bounds,resample,prepare,options,pose,profile,align,evaluate,parameterBounds,seeds,infer,build,run,capture,metadata,readPath,writePath,csv};if(typeof module!=='undefined')module.exports=root.JiGou.synthesis;
 })(globalThis);

@@ -91,9 +91,9 @@ STYLES={
  'intro':ParagraphStyle('intro',fontName='YaHei',fontSize=12,leading=21,textColor=colors.black,spaceAfter=12,wordWrap='CJK'),
  'h2':ParagraphStyle('h2',fontName='YaHeiBold',fontSize=16,leading=24,textColor=colors.black,spaceBefore=19,spaceAfter=9,keepWithNext=True,wordWrap='CJK'),
  'h3':ParagraphStyle('h3',fontName='YaHeiBold',fontSize=12.5,leading=20,textColor=colors.black,spaceBefore=12,spaceAfter=6,keepWithNext=True,wordWrap='CJK'),
- 'body':ParagraphStyle('body',fontName='YaHei',fontSize=11,leading=18.5,textColor=colors.black,spaceAfter=9,wordWrap='CJK'),
- 'step':ParagraphStyle('step',fontName='YaHei',fontSize=11,leading=18.5,textColor=colors.black,spaceAfter=8,leftIndent=13,firstLineIndent=-13,wordWrap='CJK'),
- 'caption':ParagraphStyle('caption',fontName='YaHei',fontSize=9,leading=14,textColor=colors.HexColor('#576b82'),spaceBefore=6,spaceAfter=13,alignment=TA_CENTER,wordWrap='CJK'),
+ 'body':ParagraphStyle('body',fontName='YaHei',fontSize=11,leading=18.5,textColor=colors.black,spaceAfter=8,wordWrap='CJK'),
+ 'step':ParagraphStyle('step',fontName='YaHei',fontSize=11,leading=18.5,textColor=colors.black,spaceAfter=7,leftIndent=13,firstLineIndent=-13,wordWrap='CJK'),
+ 'caption':ParagraphStyle('caption',fontName='YaHei',fontSize=9,leading=14,textColor=colors.HexColor('#576b82'),spaceBefore=6,spaceAfter=12,alignment=TA_CENTER,wordWrap='CJK'),
  'cell':ParagraphStyle('cell',fontName='YaHei',fontSize=10,leading=16,wordWrap='CJK'),
  'head':ParagraphStyle('head',fontName='YaHeiBold',fontSize=10,leading=16,textColor=colors.white,wordWrap='CJK'),
 }
@@ -119,11 +119,12 @@ def picture(label,target):
     if target.endswith('.svg'):return KeepTogether([DRAWING,Paragraph('图  四杆搭建示意，图中尺寸与教程案例一致。',STYLES['caption'])])
     im=Image(str(p));original_width,original_height=im.imageWidth,im.imageHeight;im.drawWidth=WIDTH;im.drawHeight=WIDTH*original_height/original_width
     # The UI image is an orientation aid; all operating values are stated in body text.
-    if im.drawHeight>107*mm:im.drawHeight=107*mm;im.drawWidth=im.drawHeight*im.imageWidth/im.imageHeight
+    max_height = (78 if label == '底图与动态测量' else 107) * mm
+    if im.drawHeight>max_height:im.drawHeight=max_height;im.drawWidth=im.drawHeight*im.imageWidth/im.imageHeight
     im.hAlign='CENTER'
     return KeepTogether([Spacer(1,4),im,Paragraph('图  '+txt(label)+'。界面用于定位，操作名称与参数见正文。',STYLES['caption'])])
 
-story=[Spacer(1,22*mm),Paragraph(txt(BLOCKS[0][2]),STYLES['title']),Paragraph('从绘制与搭建到凸轮设计和轨迹逆向求解',STYLES['intro']),Paragraph(f'软件版本 {VERSION}<br/>四类轨迹候选 · {len(list((ROOT / "examples").glob("*.json")))} 份机构案例 · 6 份目标轨迹',STYLES['intro']),Spacer(1,10*mm)]
+story=[Spacer(1,22*mm),Paragraph(txt(BLOCKS[0][2]),STYLES['title']),Paragraph('从绘制与搭建到凸轮设计和轨迹逆向求解',STYLES['intro']),Paragraph(f'软件版本 {VERSION}<br/>四类轨迹候选 · {len(list((ROOT / "examples").glob("*.json")))} 份机构案例 · {len(list((ROOT / "examples" / "轨迹目标").glob("*.轨迹.json")))} 份目标轨迹',STYLES['intro']),Spacer(1,10*mm)]
 cover=Image(str(DOCS/f'界面预览_使用说明_主界面_{VERSION}.png'));original_width,original_height=cover.imageWidth,cover.imageHeight;cover.drawWidth=WIDTH;cover.drawHeight=WIDTH*original_height/original_width;story.append(cover)
 story+=[Spacer(1,9*mm),Paragraph('建议阅读顺序：先完成四杆和曲柄滑块，再练凸轮，最后学习轨迹合成。',STYLES['intro']),PageBreak(),Paragraph('目录',STYLES['h2'])]
 toc=TableOfContents();toc.levelStyles=[ParagraphStyle('toc',fontName='YaHei',fontSize=11,leading=25,leftIndent=0,firstLineIndent=0,spaceBefore=2,wordWrap='CJK')];story+=[toc,Spacer(1,12*mm),Paragraph('PDF 可打印；同目录网页版可按章节浏览和搜索。案例文件位于发布包的 examples 文件夹。',STYLES['body']),PageBreak()]
